@@ -1,0 +1,4 @@
+<resources>
+    <string name="server_is_ok">Server is online</string>
+    <string name="server_is_fucked">Server is down</string>
+</resources>
