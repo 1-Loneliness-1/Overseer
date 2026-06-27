@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 rootProject.name = "Overseer"
 include(":app")
 include(":feature-start")
+include(":core:ui")

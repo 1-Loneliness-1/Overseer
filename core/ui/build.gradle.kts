@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.home.features.feature_start"
+    namespace = "com.home.core.ui"
     compileSdk {
         version = release(36)
     }
@@ -24,9 +24,6 @@ android {
             )
         }
     }
-    buildFeatures {
-        viewBinding = true
-    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -34,12 +31,9 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:ui"))
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

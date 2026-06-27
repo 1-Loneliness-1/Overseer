@@ -2,6 +2,12 @@
 <resources>
     <style name="RoundedImage">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">16dp</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="StatsText">
+        <item name="android:fontFamily">@font/proximanovaregular</item>
+        <item name="android:textSize">@dimen/text_size_20</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 </resources>
