@@ -3,4 +3,7 @@
     <string name="server_is_fucked">Server is down</string>
     <string name="server_stats">Server stats</string>
     <string name="cpu_usage">CPU usage :</string>
+    <string name="ram_usage">RAM usage :</string>
+    <string name="disk_usage">Disk usage :</string>
+    <string name="uptime_hours">Uptime (hours) :</string>
 </resources>
