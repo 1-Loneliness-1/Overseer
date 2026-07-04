@@ -37,7 +37,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature-start"))
+    implementation(project(":features:feature-start"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
