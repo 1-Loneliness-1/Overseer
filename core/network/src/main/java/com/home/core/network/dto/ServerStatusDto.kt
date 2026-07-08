@@ -1,4 +1,4 @@
-package com.home.core.model.dto
+package com.home.core.network.dto
 
 data class ServerStatusDto(
     val cpuUsagePercentage: Int,

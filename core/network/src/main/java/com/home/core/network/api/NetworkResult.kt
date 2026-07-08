@@ -1,4 +1,4 @@
-package com.home.core.model.api
+package com.home.core.network.api
 
 sealed interface NetworkResult<out T> {
 

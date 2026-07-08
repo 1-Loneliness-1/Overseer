@@ -1,8 +1,8 @@
 package com.home.core.network.client
 
-import retrofit2.HttpException
-import com.home.core.model.api.NetworkResult
+import com.home.core.network.api.NetworkResult
 import okio.IOException
+import retrofit2.HttpException
 import javax.inject.Inject
 
 class RetrofitNetworkClient @Inject constructor() : NetworkClient {

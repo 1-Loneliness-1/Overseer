@@ -41,6 +41,7 @@ android {
 
 dependencies {
     implementation(project(":core:ui"))
+    implementation(project(":core:network"))
 
     //Hilt
     implementation(libs.hilt.android)

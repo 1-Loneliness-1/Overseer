@@ -1,7 +1,6 @@
 package com.home.core.network.client
 
-import com.home.core.model.api.NetworkResult
-import com.home.core.model.api.Request
+import com.home.core.network.api.NetworkResult
 
 interface NetworkClient {
 
