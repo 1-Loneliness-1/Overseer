@@ -32,9 +32,9 @@ class RetrofitNetworkClient @Inject constructor() : NetworkClient {
 
             NetworkResult.HttpError(e.code(), e.message)
 
-        } catch (_: SerializationException) {
+        } catch (e: SerializationException) {
 
-            NetworkResult.SerializationError
+            NetworkResult.SerializationError(e)
 
         } catch (e: Exception) {
 

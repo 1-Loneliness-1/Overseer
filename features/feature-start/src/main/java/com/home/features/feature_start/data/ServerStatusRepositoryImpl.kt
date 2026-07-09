@@ -23,22 +23,38 @@ class ServerStatusRepositoryImpl @Inject constructor(
         return when (result) {
 
             is NetworkResult.Success -> {
+
                 Result.Success(result.data.mapDtoToDomainModel())
+
             }
 
             is NetworkResult.HttpError -> {
+
                 Result.Failure(AppError.ServerUnavailable)
+
             }
 
             is NetworkResult.NoConnectionError -> {
+
                 Result.Failure(AppError.NoInternet)
+
             }
 
             is NetworkResult.TimeoutError -> {
+
                 Result.Failure(AppError.ServerTooSlow)
+
+            }
+
+            is NetworkResult.SerializationError -> {
+
+                Result.Failure(AppError.Unknown(result.throwable))
+
             }
 
             is NetworkResult.UnknownError -> {
+
+                Result.Failure(AppError.Unknown(result.throwable))
 
             }
 

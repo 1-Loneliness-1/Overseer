@@ -15,7 +15,9 @@ sealed interface NetworkResult<out T> {
         val message: String?,
     ) : NetworkResult<Nothing>
 
-    data object SerializationError : NetworkResult<Nothing>
+    data class SerializationError(
+        val throwable: Throwable,
+    ) : NetworkResult<Nothing>
 
     data class UnknownError(
         val throwable: Throwable,
