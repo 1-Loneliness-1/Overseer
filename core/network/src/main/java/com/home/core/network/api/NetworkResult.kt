@@ -6,12 +6,19 @@ sealed interface NetworkResult<out T> {
         val data: T,
     ) : NetworkResult<T>
 
+    data object NoConnectionError : NetworkResult<Nothing>
+
+    data object TimeoutError : NetworkResult<Nothing>
+
     data class HttpError(
         val code: Int,
+        val message: String?,
     ) : NetworkResult<Nothing>
 
-    data object NetworkError : NetworkResult<Nothing>
+    data object SerializationError : NetworkResult<Nothing>
 
-    data object UnknownError : NetworkResult<Nothing>
+    data class UnknownError(
+        val throwable: Throwable,
+    ) : NetworkResult<Nothing>
 
 }

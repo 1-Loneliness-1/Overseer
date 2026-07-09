@@ -1,11 +1,13 @@
 package com.home.features.feature_start.data
 
+import com.home.core.network.api.NetworkResult
 import com.home.core.network.api.VpsApi
 import com.home.core.network.client.NetworkClient
+import com.home.features.feature_start.data.mapper.mapDtoToDomainModel
+import com.home.features.feature_start.domain.model.AppError
+import com.home.features.feature_start.domain.model.Result
 import com.home.features.feature_start.domain.model.ServerStatus
 import com.home.features.feature_start.domain.repository.ServerStatusRepository
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class ServerStatusRepositoryImpl @Inject constructor(
@@ -13,8 +15,32 @@ class ServerStatusRepositoryImpl @Inject constructor(
     private val networkClient: NetworkClient,
 ) : ServerStatusRepository {
 
-    override fun getServerStatus(): Flow<ServerStatus> {
-        return flow {
+    override suspend fun getServerStatus(): Result<ServerStatus> {
+        val result = networkClient.execute {
+            vpsApi.getServerStatus()
+        }
+
+        return when (result) {
+
+            is NetworkResult.Success -> {
+                Result.Success(result.data.mapDtoToDomainModel())
+            }
+
+            is NetworkResult.HttpError -> {
+                Result.Failure(AppError.ServerUnavailable)
+            }
+
+            is NetworkResult.NoConnectionError -> {
+                Result.Failure(AppError.NoInternet)
+            }
+
+            is NetworkResult.TimeoutError -> {
+                Result.Failure(AppError.ServerTooSlow)
+            }
+
+            is NetworkResult.UnknownError -> {
+
+            }
 
         }
     }

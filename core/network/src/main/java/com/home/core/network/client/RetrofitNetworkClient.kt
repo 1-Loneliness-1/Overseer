@@ -1,8 +1,11 @@
 package com.home.core.network.client
 
 import com.home.core.network.api.NetworkResult
-import okio.IOException
+import kotlinx.serialization.SerializationException
 import retrofit2.HttpException
+import java.net.ConnectException
+import java.net.SocketTimeoutException
+import java.net.UnknownHostException
 import javax.inject.Inject
 
 class RetrofitNetworkClient @Inject constructor() : NetworkClient {
@@ -13,17 +16,29 @@ class RetrofitNetworkClient @Inject constructor() : NetworkClient {
 
             NetworkResult.Success(call())
 
-        } catch (_: IOException) {
+        } catch (_: UnknownHostException) {
 
-            NetworkResult.NetworkError
+            NetworkResult.NoConnectionError
+
+        } catch (_: ConnectException) {
+
+            NetworkResult.NoConnectionError
+
+        } catch (_: SocketTimeoutException) {
+
+            NetworkResult.TimeoutError
 
         } catch (e: HttpException) {
 
-            NetworkResult.HttpError(e.code())
+            NetworkResult.HttpError(e.code(), e.message)
 
-        } catch (_: Exception) {
+        } catch (_: SerializationException) {
 
-            NetworkResult.UnknownError
+            NetworkResult.SerializationError
+
+        } catch (e: Exception) {
+
+            NetworkResult.UnknownError(e)
 
         }
 
