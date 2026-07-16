@@ -11,8 +11,10 @@ import androidx.fragment.app.viewModels
 import com.home.features.feature_start.R
 import com.home.features.feature_start.databinding.FragmentStartBinding
 import com.home.features.feature_start.presentation.state.StartFragmentUiState
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.Locale
 
+@AndroidEntryPoint
 class StartFragment : Fragment() {
 
     private val viewModel: StartViewModel by viewModels()
@@ -91,6 +93,37 @@ class StartFragment : Fragment() {
                     }
                 }
 
+                is StartFragmentUiState.SlowServer -> {
+                    binding.pbMain.isVisible = false
+                    binding.ivServerStatus.setImageResource(R.drawable.slow_server)
+                    binding.tvServerAvailability.text = getString(R.string.server_slow)
+                    binding.llServerStatus.isVisible = true
+                    binding.clServerMetrics.isVisible = false
+                }
+
+                is StartFragmentUiState.ServerUnavailable -> {
+                    binding.pbMain.isVisible = false
+                    binding.ivServerStatus.setImageResource(R.drawable.server_is_down)
+                    binding.tvServerAvailability.text = getString(R.string.server_is_fucked)
+                    binding.llServerStatus.isVisible = true
+                    binding.clServerMetrics.isVisible = false
+                }
+
+                is StartFragmentUiState.NoInternet -> {
+                    binding.pbMain.isVisible = false
+                    binding.ivServerStatus.setImageResource(R.drawable.no_internet)
+                    binding.tvServerAvailability.text = getString(R.string.no_internet)
+                    binding.llServerStatus.isVisible = true
+                    binding.clServerMetrics.isVisible = false
+                }
+
+                is StartFragmentUiState.UnknownError -> {
+                    binding.pbMain.isVisible = false
+                    binding.ivServerStatus.setImageResource(R.drawable.unknown_error)
+                    binding.tvServerAvailability.text = getString(R.string.unknown_error)
+                    binding.llServerStatus.isVisible = true
+                    binding.clServerMetrics.isVisible = false
+                }
             }
         }
     }

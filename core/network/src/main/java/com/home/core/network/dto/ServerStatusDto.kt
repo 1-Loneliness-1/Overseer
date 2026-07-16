@@ -4,10 +4,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ServerStatusDto(
-    val cpuUsagePercentage: Int,
-    val ramUsagePercentage: Int,
-    val diskUsagePercentage: Int,
-    val uptimeHours: Long,
-    val isVpnRunning: Boolean,
-    val vpnInterfaceName: String,
+    val serverMetrics: ServerMetricsDto,
+    val vpnStatus: VpnStatus,
 )

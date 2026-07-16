@@ -1,5 +1,6 @@
 package com.home.core.network.di
 
+import com.home.core.network.api.VpsApi
 import com.home.core.network.constants.BASE_URL
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
@@ -51,6 +52,15 @@ object NetworkModule {
                 json.asConverterFactory("application/json".toMediaType())
             )
             .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideVpsApi(
+        retrofit: Retrofit,
+    ): VpsApi {
+
+        return retrofit.create(VpsApi::class.java)
     }
 
 }
