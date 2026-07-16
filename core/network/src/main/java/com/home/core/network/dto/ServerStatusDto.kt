@@ -1,5 +1,8 @@
 package com.home.core.network.dto
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class ServerStatusDto(
     val cpuUsagePercentage: Int,
     val ramUsagePercentage: Int,

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.home.features.feature_start.R
 import com.home.features.feature_start.databinding.FragmentStartBinding
 import com.home.features.feature_start.presentation.state.StartFragmentUiState
@@ -14,7 +15,7 @@ import java.util.Locale
 
 class StartFragment : Fragment() {
 
-    private val viewModel: StartViewModel
+    private val viewModel: StartViewModel by viewModels()
 
     private var _binding: FragmentStartBinding? = null
 

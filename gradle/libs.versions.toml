@@ -4,6 +4,7 @@ kotlin = "2.1.21"
 hilt = "2.57"
 ksp = "2.1.21-2.0.1"
 lifecycle = "2.9.2"
+fragment = "1.8.9"
 
 retrofit = "2.11.0"
 okhttp = "4.12.0"
@@ -27,6 +28,7 @@ androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref="coreKtx" }
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref="appcompat" }
 material = { module = "com.google.android.material:material", version.ref="material" }
 androidx-activity = { module = "androidx.activity:activity", version.ref="activity" }
+androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragment" }
 androidx-constraintlayout = { module="androidx.constraintlayout:constraintlayout", version.ref="constraintlayout" }
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 

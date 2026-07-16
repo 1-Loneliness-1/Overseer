@@ -7,10 +7,14 @@ import androidx.lifecycle.viewModelScope
 
 import com.home.features.feature_start.domain.usecase.GetServerMetricsUseCase
 import com.home.features.feature_start.presentation.state.StartFragmentUiState
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
+@HiltViewModel
 class StartViewModel @Inject constructor(
     private val serverMetricsUseCase: GetServerMetricsUseCase,
 ) : ViewModel() {
@@ -23,7 +27,12 @@ class StartViewModel @Inject constructor(
     fun getServerMetrics() {
         viewModelScope.launch {
             _uiStateLiveData.postValue(StartFragmentUiState.Loading)
-            _uiStateLiveData.postValue(serverMetricsUseCase.getServerMetrics())
+
+            val serverStatus = withContext(Dispatchers.IO) {
+                serverMetricsUseCase.getServerMetrics()
+            }
+
+            _uiStateLiveData.postValue(serverStatus)
         }
     }
 

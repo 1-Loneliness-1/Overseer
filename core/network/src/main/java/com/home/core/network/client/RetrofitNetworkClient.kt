@@ -6,9 +6,8 @@ import retrofit2.HttpException
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
-import javax.inject.Inject
 
-class RetrofitNetworkClient @Inject constructor() : NetworkClient {
+class RetrofitNetworkClient : NetworkClient {
 
     override suspend fun <T> execute(call: suspend () -> T): NetworkResult<T> {
 
