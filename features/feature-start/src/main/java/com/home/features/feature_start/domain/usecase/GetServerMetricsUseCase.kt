@@ -1,9 +1,9 @@
 package com.home.features.feature_start.domain.usecase
 
-import kotlinx.coroutines.flow.Flow
+import com.home.features.feature_start.presentation.state.StartFragmentUiState
 
-fun interface GetServerMetricsUseCase {
+interface GetServerMetricsUseCase {
 
-    fun getServerMetrics(): Flow<String>
+    suspend fun getServerMetrics(): StartFragmentUiState
 
 }

@@ -9,7 +9,9 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import com.home.features.feature_start.presentation.StartFragment
 import com.home.overseer.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private var _binding: ActivityMainBinding? = null
