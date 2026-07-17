@@ -1,5 +1,6 @@
 package com.home.core.network.client
 
+import android.util.Log
 import com.home.core.network.api.NetworkResult
 import kotlinx.serialization.SerializationException
 import retrofit2.HttpException
@@ -37,7 +38,7 @@ class RetrofitNetworkClient @Inject constructor() : NetworkClient {
             NetworkResult.SerializationError(e)
 
         } catch (e: Exception) {
-
+            Log.e("NETWORK", "Unknown error", e)
             NetworkResult.UnknownError(e)
 
         }
