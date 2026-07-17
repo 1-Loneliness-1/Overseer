@@ -60,17 +60,17 @@ class StartFragment : Fragment() {
 
                     binding.tvCpuUsageValue.text = String.format(
                         Locale.getDefault(),
-                        "%d %",
+                        "%d %%",
                         fragmentUiState.serverStatus.cpuUsagePercentage,
                     )
                     binding.tvRamUsageValue.text = String.format(
                         Locale.getDefault(),
-                        "%d %",
+                        "%d %%",
                         fragmentUiState.serverStatus.ramUsagePercentage,
                     )
                     binding.tvDiskUsageValue.text = String.format(
                         Locale.getDefault(),
-                        "%d %",
+                        "%d %%",
                         fragmentUiState.serverStatus.diskUsagePercentage,
                     )
                     binding.tvUptimeHoursValue.text = String.format(
