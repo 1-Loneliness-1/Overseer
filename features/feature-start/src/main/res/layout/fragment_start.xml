@@ -4,8 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="@dimen/padding_16"
+    android:paddingHorizontal="@dimen/padding_16"
+    android:paddingTop="@dimen/padding_16"
     tools:context=".presentation.StartFragment">
 
     <ImageButton
@@ -17,199 +19,27 @@
         android:background="@android:color/transparent"
         android:src="@drawable/three_dots_vertical" />
 
-    <ProgressBar
-        android:id="@+id/pbMain"
-        style="?android:attr/progressBarStyleLarge"
-        android:indeterminate="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:visibility="gone" />
-
-    <LinearLayout
-        android:id="@+id/llAllElements"
+    <FrameLayout
+        android:id="@+id/flContainerForUiState"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:orientation="vertical"
-        android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ibMenu">
 
-        <LinearLayout
-            android:id="@+id/llServerStatus"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        <include
+            android:id="@+id/iLoadingLayout"
+            layout="@layout/loading_layout" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/ivServerStatus"
-                android:layout_width="150dp"
-                android:layout_height="300dp"
-                android:layout_gravity="center"
-                android:scaleType="centerCrop"
-                android:src="@drawable/server_is_ok"
-                app:shapeAppearanceOverlay="@style/RoundedImage" />
+        <include
+            android:id="@+id/iErrorLayout"
+            layout="@layout/error_layout" />
 
-            <TextView
-                android:id="@+id/tvServerAvailability"
-                style="@style/StatsText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_8"
-                android:layout_marginBottom="@dimen/padding_8"
-                android:gravity="center"
-                android:text="@string/server_is_ok"
-                android:textSize="@dimen/text_size_30" />
+        <include
+            android:id="@+id/iSuccessLayout"
+            layout="@layout/success_layout" />
 
-        </LinearLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/clServerMetrics"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/tvServerStats"
-                style="@style/StatsText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/server_stats"
-                android:textSize="@dimen/text_size_24"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/ivLine"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginHorizontal="64dp"
-                android:layout_marginTop="4dp"
-                android:src="@drawable/black_line"
-                app:layout_constraintBottom_toTopOf="@id/tvCpuUsage"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvServerStats" />
-
-            <TextView
-                android:id="@+id/tvCpuUsage"
-                style="@style/StatsText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/padding_16"
-                android:layout_marginTop="@dimen/padding_32"
-                android:text="@string/cpu_usage"
-                app:layout_constraintBottom_toTopOf="@id/tvRamUsage"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivLine"
-                app:layout_constraintVertical_chainStyle="spread" />
-
-            <TextView
-                android:id="@+id/tvCpuUsageValue"
-                style="@style/StatsText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/padding_16"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@id/tvCpuUsage"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tvCpuUsage"
-                app:layout_constraintTop_toTopOf="@id/tvCpuUsage"
-                tools:text="100 %" />
-
-            <TextView
-                android:id="@+id/tvRamUsage"
-                style="@style/StatsText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_8"
-                android:text="@string/ram_usage"
-                app:layout_constraintBottom_toTopOf="@id/tvDiskUsage"
-                app:layout_constraintStart_toStartOf="@id/tvCpuUsage"
-                app:layout_constraintTop_toBottomOf="@id/tvCpuUsage" />
-
-            <TextView
-                android:id="@+id/tvRamUsageValue"
-                style="@style/StatsText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@id/tvRamUsage"
-                app:layout_constraintEnd_toEndOf="@id/tvCpuUsageValue"
-                app:layout_constraintStart_toStartOf="@id/tvCpuUsageValue"
-                app:layout_constraintTop_toTopOf="@id/tvRamUsage"
-                tools:text="100 %" />
-
-            <TextView
-                android:id="@+id/tvDiskUsage"
-                style="@style/StatsText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_8"
-                android:text="@string/disk_usage"
-                app:layout_constraintBottom_toTopOf="@id/tvUptimeHours"
-                app:layout_constraintStart_toStartOf="@id/tvRamUsage"
-                app:layout_constraintTop_toBottomOf="@id/tvRamUsage" />
-
-            <TextView
-                android:id="@+id/tvDiskUsageValue"
-                style="@style/StatsText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@id/tvDiskUsage"
-                app:layout_constraintEnd_toEndOf="@id/tvRamUsageValue"
-                app:layout_constraintStart_toStartOf="@id/tvRamUsageValue"
-                app:layout_constraintTop_toTopOf="@id/tvDiskUsage"
-                tools:text="100 %" />
-
-            <TextView
-                android:id="@+id/tvUptimeHours"
-                style="@style/StatsText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_8"
-                android:layout_marginBottom="@dimen/padding_32"
-                android:text="@string/uptime_hours"
-                app:layout_constraintBottom_toTopOf="@id/tvVpnStatus"
-                app:layout_constraintStart_toStartOf="@id/tvDiskUsage"
-                app:layout_constraintTop_toBottomOf="@id/tvDiskUsage" />
-
-            <TextView
-                android:id="@+id/tvUptimeHoursValue"
-                style="@style/StatsText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@id/tvUptimeHours"
-                app:layout_constraintEnd_toEndOf="@id/tvDiskUsageValue"
-                app:layout_constraintStart_toStartOf="@id/tvDiskUsageValue"
-                app:layout_constraintTop_toTopOf="@id/tvUptimeHours"
-                tools:text="99999" />
-
-            <TextView
-                android:id="@+id/tvVpnStatus"
-                style="@style/StatsText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/padding_8"
-                android:background="@drawable/vpn_text_bg"
-                android:gravity="center"
-                android:paddingVertical="@dimen/padding_16"
-                android:text="@string/vpn_is_ok"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvUptimeHours" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </LinearLayout>
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
