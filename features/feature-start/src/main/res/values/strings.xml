@@ -1,0 +1,15 @@
+<resources>
+    <string name="server_is_ok">Server is online</string>
+    <string name="server_is_fucked">Server is down</string>
+    <string name="server_slow">Connection timeout</string>
+    <string name="no_internet">No Internet</string>
+    <string name="unknown_error">Unknown error</string>
+    <string name="server_stats">Server stats</string>
+    <string name="cpu_usage">CPU usage :</string>
+    <string name="ram_usage">RAM usage :</string>
+    <string name="disk_usage">Disk usage :</string>
+    <string name="uptime_hours">Uptime (h) :</string>
+    <string name="vpn_status">VPN status :</string>
+    <string name="vpn_is_running">running</string>
+    <string name="vpn_is_down">down</string>
+</resources>

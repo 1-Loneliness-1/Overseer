@@ -2,4 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="desert_peach">#F2C4CD</color>
+    <color name="sapphire">#051F45</color>
 </resources>

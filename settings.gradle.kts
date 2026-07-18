@@ -21,3 +21,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "Overseer"
 include(":app")
+include(":features:feature-start")
+include(":core:ui")
+include(":core:network")
+include(":core:model")
