@@ -6,8 +6,8 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivServerStatus"
-        android:layout_width="150dp"
-        android:layout_height="300dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_gravity="center"
         android:scaleType="centerCrop"
         android:src="@drawable/server_is_ok"
@@ -15,6 +15,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/padding_16"
+        app:layout_constraintHeight_percent="0.50"
+        app:layout_constraintWidth_percent="0.50"
         app:shapeAppearanceOverlay="@style/RoundedImage" />
 
     <TextView
@@ -25,9 +28,11 @@
         android:gravity="center"
         android:text="@string/server_is_ok"
         android:textSize="@dimen/text_size_30"
+        android:layout_marginTop="@dimen/padding_8"
         app:layout_constraintBottom_toTopOf="@id/tvServerStats"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivServerStatus" />
 
     <TextView
         android:id="@+id/tvServerStats"
@@ -40,27 +45,68 @@
         android:textSize="@dimen/text_size_24"
         app:layout_constraintBottom_toTopOf="@id/ivLine"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginTop="@dimen/padding_16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvServerAvailability" />
 
     <ImageView
         android:id="@+id/ivLine"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginHorizontal="64dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="@dimen/padding_8"
         android:src="@drawable/black_line"
-        app:layout_constraintBottom_toTopOf="@id/rvServerMetrics"
+        android:layout_marginHorizontal="64dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginBottom="@dimen/padding_8"
+        app:layout_constraintBottom_toTopOf="@id/llServerMetrics"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvServerStats" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvServerMetrics"
+    <LinearLayout
+        android:id="@+id/llServerMetrics"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginHorizontal="@dimen/padding_16"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivLine">
+
+        <include
+            android:id="@+id/iCpuMetric"
+            layout="@layout/metric_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/padding_8" />
+
+        <include
+            android:id="@+id/iRamMetric"
+            layout="@layout/metric_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/padding_8" />
+
+        <include
+            android:id="@+id/iDiskMetric"
+            layout="@layout/metric_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/padding_8" />
+
+        <include
+            android:id="@+id/iUptimeMetric"
+            layout="@layout/metric_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/padding_8" />
+
+        <include
+            android:id="@+id/iVpnMetric"
+            layout="@layout/metric_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/padding_8" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
