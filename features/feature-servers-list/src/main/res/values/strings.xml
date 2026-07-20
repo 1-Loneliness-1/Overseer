@@ -1,3 +1,5 @@
 <resources>
-    <string name="available_servers">Вы смотрящий за серверами</string>
+    <string name="available_servers">Monitored servers</string>
+    <string name="add_new_server">Add server</string>
+    <string name="delete_all_servers">Delete all servers</string>
 </resources>
