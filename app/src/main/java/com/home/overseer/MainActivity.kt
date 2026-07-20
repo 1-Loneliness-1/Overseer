@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fcvMain, StartFragment())
+                .addToBackStack(null)
                 .commit()
         }
 
