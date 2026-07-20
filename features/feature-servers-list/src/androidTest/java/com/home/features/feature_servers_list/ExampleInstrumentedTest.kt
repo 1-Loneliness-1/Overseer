@@ -1,4 +1,4 @@
-package com.home.feature_server_settings
+package com.home.features.feature_servers_list
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
@@ -17,6 +17,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.home.feature_server_settings.test", appContext.packageName)
+        assertEquals("com.home.features.feature_servers_list.test", appContext.packageName)
     }
 }

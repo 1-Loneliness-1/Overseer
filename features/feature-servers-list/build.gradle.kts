@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.home.feature_server_settings"
+    namespace = "com.home.features.feature_servers_list"
     compileSdk = 36
 
     defaultConfig {
@@ -14,16 +14,21 @@ android {
         consumerProguardFiles("consumer-rules.pro")
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    buildFeatures {
+        viewBinding = true
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
 
 }
 
 dependencies {
+    implementation(project(":core:ui"))
+
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
     implementation(libs.material)

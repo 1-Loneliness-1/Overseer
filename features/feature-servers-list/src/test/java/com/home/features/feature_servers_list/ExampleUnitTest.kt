@@ -1,4 +1,4 @@
-package com.home.feature_server_settings
+package com.home.features.feature_servers_list
 
 import org.junit.Assert.assertEquals
 import org.junit.Test
