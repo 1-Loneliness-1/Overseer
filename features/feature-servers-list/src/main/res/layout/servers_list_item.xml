@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/padding_16">
+
+    <ImageView
+        android:id="@+id/ivServerIcon"
+        android:layout_width="@dimen/material_design_standard_icon_size"
+        android:layout_height="@dimen/material_design_standard_icon_size"
+        android:padding="@dimen/padding_8"
+        android:src="@drawable/home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tvServerName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvServerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_8"
+        app:layout_constraintBottom_toTopOf="@id/tvServerAddress"
+        app:layout_constraintStart_toEndOf="@id/ivServerIcon"
+        app:layout_constraintTop_toTopOf="@id/ivServerIcon"
+        tools:text="Home server" />
+
+    <TextView
+        android:id="@+id/tvServerStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_8"
+        android:textColor="#00FF00"
+        app:layout_constraintBottom_toBottomOf="@id/tvServerName"
+        app:layout_constraintStart_toEndOf="@id/tvServerName"
+        app:layout_constraintTop_toTopOf="@id/tvServerName"
+        tools:text="@string/server_active" />
+
+    <TextView
+        android:id="@+id/tvServerAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/ivServerIcon"
+        app:layout_constraintStart_toStartOf="@id/tvServerName"
+        app:layout_constraintTop_toBottomOf="@id/tvServerName"
+        tools:text="https://someserverip.org/" />
+
+    <ImageButton
+        android:id="@+id/ibEditServerInfo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/edit"
+        app:layout_constraintBottom_toBottomOf="@id/tvServerAddress"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toEndOf="@id/tvServerAddress"
+        app:layout_constraintTop_toTopOf="@id/tvServerStatus" />
+
+    <ImageButton
+        android:id="@+id/ibRemoveServerFromList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/delete"
+        app:layout_constraintBottom_toBottomOf="@id/ibEditServerInfo"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ibEditServerInfo"
+        app:layout_constraintTop_toTopOf="@id/ibEditServerInfo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,4 +2,5 @@
     <string name="available_servers">Monitored servers</string>
     <string name="add_new_server">Add server</string>
     <string name="delete_all_servers">Delete all servers</string>
+    <string name="server_active">Online</string>
 </resources>
