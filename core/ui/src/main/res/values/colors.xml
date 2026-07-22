@@ -4,4 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="desert_peach">#F2C4CD</color>
     <color name="sapphire">#051F45</color>
+    <color name="light_orange">#FFAB57</color>
+    <color name="light_red">#FF7171</color>
 </resources>
