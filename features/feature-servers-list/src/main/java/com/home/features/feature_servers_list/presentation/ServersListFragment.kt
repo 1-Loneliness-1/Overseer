@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.ListAdapter
 import com.home.features.feature_servers_list.databinding.FragmentServersListBinding
+import com.home.features.feature_servers_list.domain.model.Server
 
 class ServersListFragment : Fragment() {
 
@@ -24,7 +26,7 @@ class ServersListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        val serversListAdapter: ListAdapter<Server> = ListAdapter<Server>()
     }
 
 }
