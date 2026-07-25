@@ -1,4 +1,4 @@
-package com.home.features.feature_servers_list.domain.model
+package com.home.core.model.server
 
 enum class ServerIcon {
 

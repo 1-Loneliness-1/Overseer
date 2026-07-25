@@ -28,6 +28,9 @@ android {
 
 dependencies {
     implementation(project(":core:ui"))
+    implementation(project(":core:database"))
+    implementation(project(":core:network"))
+    implementation(project(":core:model"))
 
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)

@@ -1,9 +1,9 @@
-package com.home.features.feature_servers_list.domain.model
+package com.home.core.model.server
 
 data class Server(
     val serverId: Int,
     val serverIcon: ServerIcon,
     val serverName: String,
-    val serverStatus: String,
+    val serverStatus: ServerState,
     val serverAddress: String,
 )
