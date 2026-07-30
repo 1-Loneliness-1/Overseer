@@ -17,9 +17,9 @@ class RetrofitNetworkClient @Inject constructor() : NetworkClient {
 
             NetworkResult.Success(call())
 
-        } catch (_: UnknownHostException) {
+        } catch (e: UnknownHostException) {
 
-            NetworkResult.NoConnectionError
+            NetworkResult.UnknownError(e)
 
         } catch (_: ConnectException) {
 

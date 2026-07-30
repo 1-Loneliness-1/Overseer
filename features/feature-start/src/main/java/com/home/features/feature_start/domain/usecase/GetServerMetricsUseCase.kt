@@ -1,9 +1,10 @@
 package com.home.features.feature_start.domain.usecase
 
-import com.home.features.feature_start.presentation.state.StartFragmentUiState
+import com.home.features.feature_start.domain.model.Result
+import com.home.features.feature_start.domain.model.ServerStatus
 
 interface GetServerMetricsUseCase {
 
-    suspend fun getServerMetrics(): StartFragmentUiState
+    suspend fun getServerMetrics(): Result<ServerStatus>
 
 }

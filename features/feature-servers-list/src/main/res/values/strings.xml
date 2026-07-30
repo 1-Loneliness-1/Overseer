@@ -3,4 +3,6 @@
     <string name="add_new_server">Add server</string>
     <string name="delete_all_servers">Delete all servers</string>
     <string name="server_active">Online</string>
+    <string name="server_offline">Offline</string>
+    <string name="server_checking">Checking…</string>
 </resources>

@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 
 import com.home.features.feature_start.domain.usecase.GetServerMetricsUseCase
+import com.home.features.feature_start.presentation.mapper.convertToUiStateObj
 import com.home.features.feature_start.presentation.state.StartFragmentUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -32,7 +33,7 @@ class StartViewModel @Inject constructor(
                 serverMetricsUseCase.getServerMetrics()
             }
 
-            _uiStateFlow.value = serverStatus
+            _uiStateFlow.value = serverStatus.convertToUiStateObj()
         }
     }
 

@@ -35,6 +35,9 @@ dependencies {
     implementation(project(":core:network"))
     implementation(project(":core:model"))
 
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.fragment.ktx)
+
     //Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)

@@ -1,4 +1,4 @@
-package com.home.features.feature_start.domain.mapper
+package com.home.features.feature_start.presentation.mapper
 
 import com.home.features.feature_start.domain.model.AppError
 import com.home.features.feature_start.domain.model.Result
