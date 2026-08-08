@@ -69,4 +69,8 @@
         app:layout_constraintStart_toEndOf="@id/mbAddNewServer"
         app:layout_constraintTop_toTopOf="@id/mbAddNewServer" />
 
+    <include
+        android:id="@+id/iLoadingLayout"
+        layout="@layout/loading_layout" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

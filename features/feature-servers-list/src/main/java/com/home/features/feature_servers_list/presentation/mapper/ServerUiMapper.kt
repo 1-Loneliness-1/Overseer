@@ -42,10 +42,25 @@ class ServerUiMapper @Inject constructor() {
 
     private fun getServerStatusUi(serverStatusUi: ServerState): ServerStatusUi {
         return when (serverStatusUi) {
+
             ServerState.CHECKING -> {
                 ServerStatusUi(
                     textRes = R.string.server_checking,
                     colorRes = CoreUiR.color.light_orange
+                )
+            }
+
+            ServerState.OFFLINE -> {
+                ServerStatusUi(
+                    textRes = R.string.server_offline,
+                    colorRes = CoreUiR.color.light_red
+                )
+            }
+
+            ServerState.ONLINE -> {
+                ServerStatusUi(
+                    textRes = R.string.server_active,
+                    colorRes = CoreUiR.color.light_green
                 )
             }
         }
