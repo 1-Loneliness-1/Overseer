@@ -17,60 +17,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.1" />
 
-    <TextView
-        android:id="@+id/tvAvailableServers"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/available_servers"
-        android:layout_marginTop="@dimen/padding_16"
-        android:fontFamily="@font/proximanovaregular"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textSize="@dimen/text_size_20"
-        app:layout_constraintBottom_toTopOf="@id/rvAvailableServersList"
-        app:layout_constraintTop_toBottomOf="@id/ivBackToPrevScreen" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvAvailableServersList"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="@dimen/padding_16"
-        app:layout_constraintBottom_toTopOf="@id/mbAddNewServer"
-        app:layout_constraintTop_toBottomOf="@id/tvAvailableServers" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/mbAddNewServer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/add_new_server"
-        android:layout_marginTop="@dimen/padding_16"
-        android:layout_marginEnd="@dimen/padding_8"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/mbDeleteAllServers"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/button_selector"
-        android:textColor="@color/button_text_selector"
-        app:layout_constraintTop_toBottomOf="@id/rvAvailableServersList" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/mbDeleteAllServers"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/delete_all_servers"
-        android:background="@drawable/button_selector"
-        android:textColor="@color/button_text_selector"
-        app:layout_constraintBottom_toBottomOf="@id/mbAddNewServer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/mbAddNewServer"
-        app:layout_constraintTop_toTopOf="@id/mbAddNewServer" />
-
     <include
         android:id="@+id/iLoadingLayout"
         layout="@layout/loading_layout" />
+
+    <include
+        android:id="@+id/iServersListLayout"
+        layout="@layout/servers_list_layout" />
+
+    <include
+        android:id="@+id/iErrorLayout"
+        layout="@layout/servers_list_error_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

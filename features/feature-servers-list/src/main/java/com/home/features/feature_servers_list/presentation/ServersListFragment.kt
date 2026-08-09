@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -42,8 +43,8 @@ class ServersListFragment : Fragment() {
             LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         adapter = ServerAdapter()
 
-        binding.rvAvailableServersList.layoutManager = serversListLayoutManager
-        binding.rvAvailableServersList.adapter = adapter
+        binding.iServersListLayout.rvAvailableServersList.layoutManager = serversListLayoutManager
+        binding.iServersListLayout.rvAvailableServersList.adapter = adapter
     }
 
     private fun observeViewModel() {
@@ -56,6 +57,10 @@ class ServersListFragment : Fragment() {
                 }
 
             }
+
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+
+            }
         }
 
     }
@@ -64,9 +69,25 @@ class ServersListFragment : Fragment() {
 
         when (uiState) {
             is ServersListUiState.Loading -> showLoadingState()
+
             is ServersListUiState.Success -> showServersList()
+
             is ServersListUiState.EmptyServersList -> showEmptyListState()
         }
+    }
+
+    private fun showLoadingState() {
+        binding.ivBackToPrevScreen.isVisible = false
+        binding.iLoadingLayout.root.isVisible = true
+        binding.iServersListLayout.root.isVisible = false
+        binding.iErrorLayout.root.isVisible = false
+    }
+
+    private fun showServersList() {
+        binding.ivBackToPrevScreen.isVisible = true
+        binding.iLoadingLayout.root.isVisible = false
+        binding.iErrorLayout.root.isVisible = false
+        binding.iServersListLayout.root.isVisible = true
     }
 
 }
