@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.home.features.feature_start.presentation.StartFragment">
+
+        <action
+            android:id="@+id/action_startFragment_to_serversListFragment"
+            app:destination="@id/serversListFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/serversListFragment"
+        android:name="com.home.features.feature_servers_list.presentation.ServersListFragment">
+
+    </fragment>
+
+</navigation>

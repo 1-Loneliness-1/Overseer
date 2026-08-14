@@ -10,4 +10,5 @@ data class ServerEntity(
     val name: String,
     @ColumnInfo(name = "base_url") val baseUrl: String,
     val icon: String,
+    @ColumnInfo(name = "is_selected") val isSelected: Boolean,
 )

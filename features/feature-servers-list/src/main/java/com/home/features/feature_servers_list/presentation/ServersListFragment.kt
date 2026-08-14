@@ -25,7 +25,6 @@ class ServersListFragment : Fragment() {
     private lateinit var adapter: ServerAdapter
 
     private var _binding: FragmentServersListBinding? = null
-
     val binding get() = _binding!!
 
     override fun onCreateView(
@@ -45,6 +44,9 @@ class ServersListFragment : Fragment() {
 
         binding.iServersListLayout.rvAvailableServersList.layoutManager = serversListLayoutManager
         binding.iServersListLayout.rvAvailableServersList.adapter = adapter
+
+        observeViewModel()
+        viewModel.getServersList()
     }
 
     private fun observeViewModel() {
@@ -59,7 +61,9 @@ class ServersListFragment : Fragment() {
             }
 
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-
+                viewModel.servers.collect { servers ->
+                    adapter.submitList(servers)
+                }
             }
         }
 
@@ -80,14 +84,23 @@ class ServersListFragment : Fragment() {
         binding.ivBackToPrevScreen.isVisible = false
         binding.iLoadingLayout.root.isVisible = true
         binding.iServersListLayout.root.isVisible = false
-        binding.iErrorLayout.root.isVisible = false
+        binding.iEmptyListLayout.root.isVisible = false
     }
 
     private fun showServersList() {
         binding.ivBackToPrevScreen.isVisible = true
         binding.iLoadingLayout.root.isVisible = false
-        binding.iErrorLayout.root.isVisible = false
+        binding.iEmptyListLayout.root.isVisible = false
         binding.iServersListLayout.root.isVisible = true
+    }
+
+    private fun showEmptyListState() {
+        binding.apply {
+            ivBackToPrevScreen.isVisible = true
+            iLoadingLayout.root.isVisible = false
+            iEmptyListLayout.root.isVisible = true
+            iServersListLayout.root.isVisible = false
+        }
     }
 
 }

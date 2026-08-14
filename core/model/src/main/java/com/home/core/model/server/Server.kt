@@ -6,4 +6,5 @@ data class Server(
     val serverName: String,
     val serverStatus: ServerState,
     val serverAddress: String,
+    val isSelected: Boolean,
 )

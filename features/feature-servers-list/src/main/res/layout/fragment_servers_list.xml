@@ -26,7 +26,7 @@
         layout="@layout/servers_list_layout" />
 
     <include
-        android:id="@+id/iErrorLayout"
-        layout="@layout/servers_list_error_layout" />
+        android:id="@+id/iEmptyListLayout"
+        layout="@layout/servers_empty_list_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

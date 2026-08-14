@@ -12,5 +12,6 @@ fun ServerEntity.toDomain(state: ServerState): Server {
         serverName = this.name,
         serverStatus = state,
         serverAddress = this.baseUrl,
+        isSelected = this.isSelected,
     )
 }
