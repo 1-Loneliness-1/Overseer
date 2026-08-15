@@ -14,6 +14,9 @@ interface ServersDao {
     @Query("SELECT * FROM servers;")
     suspend fun getServersList(): List<ServerEntity>
 
+    @Query("SELECT * FROM servers WHERE is_selected = 1;")
+    suspend fun getSelectedServer(): ServerEntity?
+
     @Query("DELETE FROM servers WHERE id = :id;")
     suspend fun deleteServerById(id: Long)
 

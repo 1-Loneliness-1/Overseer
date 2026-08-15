@@ -9,33 +9,20 @@ plugins {
 }
 
 android {
-    namespace = "com.home.features.feature_start"
+    namespace = "com.home.features.feature_add_server"
     compileSdk = 36
 
     defaultConfig {
-        minSdk = 28
+        minSdk = 24
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
-    buildFeatures {
-        viewBinding = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+
 }
 
 kotlin {
@@ -45,27 +32,21 @@ kotlin {
 }
 
 dependencies {
-    implementation(project(":core:ui"))
-    implementation(project(":core:model"))
-    implementation(project(":core:network"))
-    implementation(project(":core:database"))
-
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.fragment.ktx)
-
-    //Hilt
-    implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
 
     // Jetpack Navigation
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
+    //Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
 
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.material)
     testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.androidx.junit)
 }
