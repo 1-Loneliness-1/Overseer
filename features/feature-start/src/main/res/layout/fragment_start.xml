@@ -40,6 +40,10 @@
             android:id="@+id/iSuccessLayout"
             layout="@layout/success_layout" />
 
+        <include
+            android:id="@+id/iEmptyListLayout"
+            layout="@layout/empty_servers_list_layout" />
+
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

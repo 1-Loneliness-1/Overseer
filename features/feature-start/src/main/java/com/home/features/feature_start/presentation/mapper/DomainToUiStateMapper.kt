@@ -18,6 +18,8 @@ fun <T> Result<T>.convertToUiStateObj(): StartFragmentUiState {
 
             when (this.error) {
 
+                is AppError.ServerNotSelected -> StartFragmentUiState.EmptyServersList
+
                 is AppError.ServerTooSlow -> StartFragmentUiState.SlowServer
 
                 is AppError.ServerUnavailable -> StartFragmentUiState.ServerUnavailable

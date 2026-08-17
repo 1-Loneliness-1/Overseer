@@ -8,6 +8,8 @@ sealed interface AppError {
 
     data object ServerTooSlow : AppError
 
+    data object ServerNotSelected : AppError
+
     data class Unknown(
         val throwable: Throwable
     ) : AppError

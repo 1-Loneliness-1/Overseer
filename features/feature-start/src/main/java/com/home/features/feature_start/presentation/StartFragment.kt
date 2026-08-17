@@ -104,14 +104,24 @@ class StartFragment : Fragment() {
 
             is StartFragmentUiState.Content -> showSuccessState(uiState.serverStatus)
 
+            is StartFragmentUiState.EmptyServersList -> showEmptyListState()
+
             else -> showErrorState(uiState)
         }
+    }
+
+    private fun showEmptyListState() {
+        binding.iLoadingLayout.root.isVisible = false
+        binding.iSuccessLayout.root.isVisible = false
+        binding.iErrorLayout.root.isVisible = false
+        binding.iEmptyListLayout.root.isVisible = true
     }
 
     private fun showLoadingState() {
         binding.iLoadingLayout.root.isVisible = true
         binding.iSuccessLayout.root.isVisible = false
         binding.iErrorLayout.root.isVisible = false
+        binding.iEmptyListLayout.root.isVisible = false
     }
 
     private fun showSuccessState(serverStatus: ServerStatus) {
@@ -163,11 +173,13 @@ class StartFragment : Fragment() {
         binding.iLoadingLayout.root.isVisible = false
         binding.iSuccessLayout.root.isVisible = true
         binding.iErrorLayout.root.isVisible = false
+        binding.iEmptyListLayout.root.isVisible = false
     }
 
     private fun showErrorState(uiErrorState: StartFragmentUiState) {
         binding.iLoadingLayout.root.isVisible = false
         binding.iSuccessLayout.root.isVisible = false
+        binding.iEmptyListLayout.root.isVisible = false
 
         when (uiErrorState) {
 

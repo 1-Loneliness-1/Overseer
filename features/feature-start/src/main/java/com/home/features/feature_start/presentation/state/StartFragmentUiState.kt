@@ -16,6 +16,8 @@ sealed interface StartFragmentUiState {
 
     data object NoInternet : StartFragmentUiState
 
+    data object EmptyServersList : StartFragmentUiState
+
     data object UnknownError : StartFragmentUiState
 
 }
