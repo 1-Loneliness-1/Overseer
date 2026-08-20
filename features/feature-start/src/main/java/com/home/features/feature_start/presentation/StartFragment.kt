@@ -11,21 +11,17 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.home.core.ui.AppNavigator
 import com.home.features.feature_start.R
 import com.home.features.feature_start.databinding.FragmentStartBinding
 import com.home.features.feature_start.domain.model.ServerStatus
+import com.home.features.feature_start.navigation.StartFragmentNavigator
 import com.home.features.feature_start.presentation.state.StartFragmentUiState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.util.Locale
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class StartFragment : Fragment() {
-
-    @Inject
-    lateinit var navigator: AppNavigator
     private val viewModel: StartViewModel by viewModels()
 
     private var _binding: FragmentStartBinding? = null
@@ -43,6 +39,13 @@ class StartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val navigator = requireActivity() as? StartFragmentNavigator
+            ?: throw (IllegalAccessException("Navigator class not implemented for current activity"))
+
+        binding.iEmptyListLayout.bAddNewServer.setOnClickListener {
+            navigator.openAddServerFragment()
+        }
+
         binding.ibMenu.setOnClickListener { view ->
             PopupMenu(requireContext(), view).apply {
 
@@ -52,12 +55,10 @@ class StartFragment : Fragment() {
                     when (item.itemId) {
 
                         R.id.action_servers_list -> {
-                            navigator.openServersList()
                             true
                         }
 
                         R.id.action_refresh_server_metrics -> {
-                            viewModel.getServerMetrics()
                             true
                         }
 

@@ -20,6 +20,9 @@ interface ServersDao {
     @Query("DELETE FROM servers WHERE id = :id;")
     suspend fun deleteServerById(id: Long)
 
+    @Query("UPDATE servers SET is_selected = 0 WHERE is_selected = 1;")
+    suspend fun clearCurrentServer()
+
     @Query("DELETE FROM servers;")
     suspend fun deleteAllServers()
 

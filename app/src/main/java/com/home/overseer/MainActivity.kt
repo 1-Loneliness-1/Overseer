@@ -7,11 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
+import com.home.features.feature_start.navigation.StartFragmentNavigator
 import com.home.overseer.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), StartFragmentNavigator {
 
     private var _binding: ActivityMainBinding? = null
     val binding get() = _binding!!
@@ -43,5 +44,9 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
 
         _binding = null
+    }
+
+    override fun openAddServerFragment() {
+        TODO("Destination add server fragment not implemented yet")
     }
 }

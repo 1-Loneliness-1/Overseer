@@ -15,3 +15,13 @@ fun ServerEntity.toDomain(state: ServerState): Server {
         isSelected = this.isSelected,
     )
 }
+
+fun Server.toEntity(): ServerEntity {
+    return ServerEntity(
+        id = this.serverId,
+        name = this.serverName,
+        baseUrl = this.serverAddress,
+        icon = serverIcon.name,
+        isSelected = this.isSelected,
+    )
+}
